@@ -175,6 +175,7 @@ def random_event():
 
 
 # START THE GAME
+document.getElementById("dog-name").innerText = dog_name
 document.getElementById("status-text").innerText = (
     dog_name + " is ready for an adventure!"
 )
