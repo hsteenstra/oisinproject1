@@ -4,95 +4,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dog Adventure</title>
+
+  <title>Dog Adventure | Pet Simulator</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
+
   <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
+
 <body>
   <main class="app">
+
     <header class="hero">
       <div>
-        <p class="eyebrow">YOUR NEW BEST FRIEND</p>
-        <h1>Dog <span>Adventure</span></h1>
-        <p class="subtitle">A little care goes a long way.</p>
-        <div class="tags"><span>FEED</span><span>PLAY</span><span>REST</span></div>
+        <p class="eyebrow">PET SIMULATOR / PLAYER 01</p>
+
+        <h1>DOG <span>ADVENTURE</span></h1>
+
+        <p class="subtitle">
+          Manage your dog's stats. Make your choices. Keep the adventure going.
+        </p>
+
+        <div class="tags">
+          <span>CARE</span>
+          <span>TRAIN</span>
+          <span>EXPLORE</span>
+        </div>
       </div>
-      <div class="hero-dog">🐶</div>
+
+      <div class="hero-dog">🐕</div>
     </header>
 
     <section class="game">
+
       <div class="top-grid">
+
+        <!-- DOG PROFILE -->
         <section class="buddy-card">
+
           <div class="portrait">🐕</div>
-          <div class="name">🐾 Buddy</div>
+
+          <div class="name">
+            <span id="dog-name">Your Dog</span>
+          </div>
+
           <p class="label">HAPPINESS</p>
-          <div class="score"><span id="happiness">0</span><small>/100</small></div>
-          <div class="track"><div id="happiness-bar" class="fill happiness-fill"></div></div>
+
+          <div class="score">
+            <span id="happiness">0</span><small> / 100</small>
+          </div>
+
+          <div class="track">
+            <div id="happiness-bar" class="fill happiness-fill"></div>
+          </div>
+
           <div id="hearts" class="hearts">♡ ♡ ♡ ♡ ♡</div>
-          <p class="caption">Your loyal sidekick</p>
+
+          <p class="caption">Companion status: Active</p>
+
         </section>
 
+        <!-- GAME ACTIONS -->
         <section class="actions">
-          <p class="eyebrow">MAKE A CHOICE</p>
-          <h2>What should Buddy do?</h2>
-          <p class="muted">Pick an activity and see what happens.</p>
+
+          <p class="eyebrow">ACTION MENU</p>
+
+          <h2>Choose Your Next Move</h2>
+
+          <p class="muted">
+            Each action changes your dog's stats. Choose wisely.
+          </p>
 
           <button class="action feed" py-click="feed">
             <span class="emoji">🍖</span>
-            <span class="button-copy"><b>Feed Buddy</b><small>Fill that tummy</small></span>
+
+            <span class="button-copy">
+              <b>Feed Dog</b>
+              <small>Reduce hunger and increase happiness</small>
+            </span>
+
             <span class="arrow">↗</span>
           </button>
 
           <button class="action play" py-click="play">
             <span class="emoji">🎾</span>
-            <span class="button-copy"><b>Play together</b><small>Burn off some energy</small></span>
+
+            <span class="button-copy">
+              <b>Play</b>
+              <small>Increase happiness at the cost of energy</small>
+            </span>
+
             <span class="arrow">↗</span>
           </button>
 
           <button class="action rest" py-click="rest">
-            <span class="emoji">🛏️</span>
-            <span class="button-copy"><b>Take a nap</b><small>Recharge those paws</small></span>
+            <span class="emoji">⚡</span>
+
+            <span class="button-copy">
+              <b>Rest</b>
+              <small>Restore energy and recover</small>
+            </span>
+
             <span class="arrow">↗</span>
           </button>
 
+          <!-- STATUS DISPLAY -->
           <div class="status">
-            <span id="status-icon" class="status-emoji">💭</span>
-            <div><p class="label">BUDDY'S STATUS</p><p id="status-text">Ready for an adventure!</p></div>
+            <span id="status-icon" class="status-emoji">◈</span>
+
+            <div>
+              <p class="label">CURRENT STATUS</p>
+              <p id="status-text" class="status-text">
+                Ready to start.
+              </p>
+            </div>
           </div>
 
+          <!-- SECONDARY STATS -->
           <div class="stats">
+
             <div class="stat">
-              <span>🍗</span><div><small>HUNGER</small><b id="hunger">50</b></div>
-              <div class="mini-track"><div id="hunger-bar" class="fill hunger-fill"></div></div>
+              <span>🍗</span>
+
+              <div>
+                <small>HUNGER</small>
+                <b id="hunger">50</b>
+              </div>
+
+              <div class="mini-track">
+                <div id="hunger-bar" class="fill hunger-fill"></div>
+              </div>
             </div>
+
             <div class="stat">
-              <span>⚡</span><div><small>ENERGY</small><b id="energy">70</b></div>
-              <div class="mini-track"><div id="energy-bar" class="fill energy-fill"></div></div>
+              <span>⚡</span>
+
+              <div>
+                <small>ENERGY</small>
+                <b id="energy">70</b>
+              </div>
+
+              <div class="mini-track">
+                <div id="energy-bar" class="fill energy-fill"></div>
+              </div>
             </div>
+
           </div>
         </section>
+
       </div>
 
+      <!-- ACTIVITY LOG -->
       <section class="journal">
+
         <div class="journal-heading">
-          <div><h3>✎ Buddy's Journal</h3><p>A little log of your adventures</p></div>
+          <div>
+            <h3>Activity Log</h3>
+            <p>Track your actions and see what happens.</p>
+          </div>
+
           <span class="live">● LIVE LOG</span>
         </div>
+
         <div id="journal-content" class="journal-content">
           <div class="empty">
-            <span>🐾</span>
-            <div><b>Your story starts here.</b><p>Choose Feed, Play, or Rest to begin!</p></div>
+            <span>⌁</span>
+
+            <div>
+              <b>No activity recorded.</b>
+              <p>Choose an action to start your adventure.</p>
+            </div>
           </div>
         </div>
+
       </section>
 
-      <footer>MADE WITH ♥ AND A LITTLE PYTHON <span>GOOD DOG. GREAT ADVENTURE.</span></footer>
+      <footer>
+        <span>DOG ADVENTURE // PET SIMULATOR</span>
+        <span>POWERED BY PYTHON</span>
+      </footer>
+
     </section>
-    <p class="bottom-note">✦ Every great adventure starts with one small choice. ✦</p>
+
+    <p class="bottom-note">
+      Every action has an effect. Keep your stats balanced.
+    </p>
+
   </main>
 
   <py-script src="main.py"></py-script>
+
 </body>
 </html>
