@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dog Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">YOUR NEW BEST FRIEND</p>
+        <h1>Dog <span>Adventure</span></h1>
+        <p class="subtitle">A little care goes a long way.</p>
+        <div class="tags"><span>FEED</span><span>PLAY</span><span>REST</span></div>
+      </div>
+      <div class="hero-dog">🐶</div>
+    </header>
+
+    <section class="game">
+      <div class="top-grid">
+        <section class="buddy-card">
+          <div class="portrait">🐕</div>
+          <div class="name">🐾 Buddy</div>
+          <p class="label">HAPPINESS</p>
+          <div class="score"><span id="happiness">0</span><small>/100</small></div>
+          <div class="track"><div id="happiness-bar" class="fill happiness-fill"></div></div>
+          <div id="hearts" class="hearts">♡ ♡ ♡ ♡ ♡</div>
+          <p class="caption">Your loyal sidekick</p>
+        </section>
+
+        <section class="actions">
+          <p class="eyebrow">MAKE A CHOICE</p>
+          <h2>What should Buddy do?</h2>
+          <p class="muted">Pick an activity and see what happens.</p>
+
+          <button class="action feed" py-click="feed">
+            <span class="emoji">🍖</span>
+            <span class="button-copy"><b>Feed Buddy</b><small>Fill that tummy</small></span>
+            <span class="arrow">↗</span>
+          </button>
+
+          <button class="action play" py-click="play">
+            <span class="emoji">🎾</span>
+            <span class="button-copy"><b>Play together</b><small>Burn off some energy</small></span>
+            <span class="arrow">↗</span>
+          </button>
+
+          <button class="action rest" py-click="rest">
+            <span class="emoji">🛏️</span>
+            <span class="button-copy"><b>Take a nap</b><small>Recharge those paws</small></span>
+            <span class="arrow">↗</span>
+          </button>
+
+          <div class="status">
+            <span id="status-icon" class="status-emoji">💭</span>
+            <div><p class="label">BUDDY'S STATUS</p><p id="status-text">Ready for an adventure!</p></div>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <span>🍗</span><div><small>HUNGER</small><b id="hunger">50</b></div>
+              <div class="mini-track"><div id="hunger-bar" class="fill hunger-fill"></div></div>
+            </div>
+            <div class="stat">
+              <span>⚡</span><div><small>ENERGY</small><b id="energy">70</b></div>
+              <div class="mini-track"><div id="energy-bar" class="fill energy-fill"></div></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="journal">
+        <div class="journal-heading">
+          <div><h3>✎ Buddy's Journal</h3><p>A little log of your adventures</p></div>
+          <span class="live">● LIVE LOG</span>
+        </div>
+        <div id="journal-content" class="journal-content">
+          <div class="empty">
+            <span>🐾</span>
+            <div><b>Your story starts here.</b><p>Choose Feed, Play, or Rest to begin!</p></div>
+          </div>
+        </div>
+      </section>
+
+      <footer>MADE WITH ♥ AND A LITTLE PYTHON <span>GOOD DOG. GREAT ADVENTURE.</span></footer>
+    </section>
+    <p class="bottom-note">✦ Every great adventure starts with one small choice. ✦</p>
+  </main>
+
+  <py-script src="main.py"></py-script>
+</body>
+</html>
